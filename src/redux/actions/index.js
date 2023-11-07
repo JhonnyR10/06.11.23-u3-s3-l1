@@ -24,11 +24,13 @@ export const setQueryAction = (query) => {
   };
 };
 
-export const getJobsAction = () => {
+export const getJobsAction = (query) => {
   return async (dispatch) => {
     try {
       let resp = await fetch(
-        "https://strive-benchmark.herokuapp.com/api/jobs?search="
+        "https://strive-benchmark.herokuapp.com/api/jobs?search=" +
+          query +
+          "&limit=20"
       );
       if (resp.ok) {
         let fetchedJobs = await resp.json();

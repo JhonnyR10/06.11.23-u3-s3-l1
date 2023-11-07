@@ -1,6 +1,7 @@
 import { Button, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { removeFromFavAction } from "../redux/actions";
 
 const Favourites = () => {
   const data = useSelector((state) => state.favourites.content);
@@ -27,10 +28,7 @@ const Favourites = () => {
               <Col xs={1} key={i}>
                 <Button
                   onClick={() => {
-                    dispatch({
-                      type: "REMOVE_FROM_FAV",
-                      payload: i,
-                    });
+                    dispatch(removeFromFavAction(i));
                   }}
                 >
                   Remove

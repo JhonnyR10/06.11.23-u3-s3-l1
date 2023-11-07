@@ -1,7 +1,7 @@
 import { GET_JOBS } from "../actions";
 
 const initialState = {
-  stock: [], // questo array ospiterà i libri risultanti dalla fetch effettuata su /food-books
+  jobs: [],
 };
 
 const jobsReducer = (state = initialState, action) => {
@@ -9,7 +9,7 @@ const jobsReducer = (state = initialState, action) => {
     case GET_JOBS:
       return {
         ...state,
-        stock: action.payload, // un array pieno di libri!
+        jobs: action.payload,
       };
 
     default:
